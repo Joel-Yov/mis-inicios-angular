@@ -1,7 +1,9 @@
-import { Component, signal } from "@angular/core";
+import { UpperCasePipe } from "@angular/common";
+import { Component, computed, Signal, signal } from "@angular/core";
 
 @Component({
-    templateUrl: './hero-page.component.html'
+    templateUrl: './hero-page.component.html',
+    imports: [UpperCasePipe],
 })
 export class HeroPageComponent {
 
@@ -11,11 +13,20 @@ export class HeroPageComponent {
     name = signal<string>("Ironman");
     age = signal<number>(45);
 
-    getHeroDescription() : string
+
+    // SIGNALS COMPUTADA: todo aquella que cambia automaticamente cuando sus otras
+    // signals (es dependiente de otras) ya han cambiado, osea directamente no pueden ser cambiadas
+    heroDescription: Signal<string> = computed(() => 
+    {
+        const description = `${this.name()} - ${this.age()}`;
+        return description;
+    })
+
+    getHeroDescription = computed(() =>
     {
         let description : string = `Hi, my name is ${this.name()} and I'm ${this.age()} years old`;
         return description;
-    }
+    })
 
     changeHero() : void
     {
@@ -34,8 +45,9 @@ export class HeroPageComponent {
        this.age.set(45); 
     }
 
-    capitalizedName(): string {
-        let nombreMayus: string = `${this.name().toLocaleUpperCase()}`;
-        return nombreMayus;
-    }
+    // capitalizedName: Signal<string> = computed(() =>
+    // {
+    //     let nombreMayus: string = `${this.name().toLocaleUpperCase()}`;
+    //     return nombreMayus;
+    // })
 }
