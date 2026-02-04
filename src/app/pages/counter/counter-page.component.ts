@@ -1,12 +1,20 @@
-import { Component, signal } from "@angular/core";
+import { ChangeDetectionStrategy, Component, signal } from "@angular/core";
 
 @Component({
     templateUrl: `./counter-page.component.html`,
-
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CounterPageComponent {
     counter = 21;
     counterSignal = signal(10);
+
+    constructor()
+    {
+        // setInterval(() => 
+        // {
+        //     this.counterSignal.update((current) => current + 1);
+        // }, 2000);
+    }
 
     increaseBy(value: number): void
     {
