@@ -12,9 +12,19 @@
         text-decoration: none;
         font-size: 1.2em;
     }
+
+    nav a.activeClass {
+        font-weight: bold;
+        border-bottom: 2px solid wheat;
+        color: blue;
+    }
 </style>
 
 <nav>
-    <a routerLink="/">Counter</a>
-    <a routerLink="/hero">Hero</a>
+    <!-- GRACIAS AL ROUTERLINK PODEMOS APLICAR ESTILOS CADA VEZ QUE SE NAVEGA, ANGULAR SE ENCARGARA DE QUITAR Y PONER ESA CLASE CUANDO SE USA PARA NAVEGAR -->
+    <a routerLink="/"
+        routerLinkActive="activeClass"  
+        [routerLinkActiveOptions]="{exact: true}"
+    >Counter</a>
+    <a routerLink="/hero" [routerLinkActive]="'activeClass'">Hero</a>
 </nav>
