@@ -14,6 +14,12 @@ interface Character {
 })
 export class DragonballPage {
 
+  isNaN = isNaN;
+  Number = Number;
+
+  name = signal<string>('Gohan');
+  power = signal<number>(100);
+
   characters = signal<Character[]>([
     {
       id: 1,
@@ -36,4 +42,9 @@ export class DragonballPage {
       power: 3000,
     },
   ]);
+
+  addCharacter() : void 
+  {
+    console.log(`[${this.name()} - ${this.power()}]`);
+  }
 }
