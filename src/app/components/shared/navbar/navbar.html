@@ -27,4 +27,10 @@
         [routerLinkActiveOptions]="{exact: true}"
     >Counter</a>
     <a routerLink="/hero" [routerLinkActive]="'activeClass'">Hero</a>
+
+    <!-- Necesitas el routerLink para navegar, pero el routerLinkActive es el que se encarga de aplicar la clase cada vez que se navega a esa ruta, 
+    si no usas el routerLinkActive no se aplicara la clase aunque navegues a esa ruta, 
+    y si usas el routerLinkActive sin el routerLink no se aplicara la clase aunque navegues a esa ruta, 
+    es decir, ambos son necesarios para aplicar la clase cada vez que se navega a esa ruta. -->
+    <a routerLink="/dragonball" [routerLinkActive]="'activeClass'">Dragon Ball</a>
 </nav>

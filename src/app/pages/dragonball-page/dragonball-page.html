@@ -1,0 +1,27 @@
+<h1>DRAGON BALL PAGE</h1>
+<hr>
+
+<section class="row">
+    <div class="col-12 col-sm-6">
+        <h3>Agregar: </h3>
+        <input type="text" class="form-control" placeholder="Nombre del personaje">
+        <input type="number" class="form-control mt-2" placeholder="Poder">
+        <button class="btn btn-primary mt-2">Agregar</button>
+    </div>
+
+    <div class="col-12 col-sm-6">
+        <h3>Personajes:</h3>
+        <ul>
+            <!-- Usamos para que Angular puede identificar fácilmente qué elementos 
+            han cambiado, agregado o eliminado en la lista, 
+            evitando renderizados innecesarios y mejorando la eficiencia de la aplicación. -->
+            @for (character of characters(); track character.id)
+            {
+                <li>
+                    <span>{{ character.name }}</span>
+                    <strong class="text-danger"> ({{ character.power }})</strong>
+                </li>
+            }
+        </ul>
+    </div>
+</section>
