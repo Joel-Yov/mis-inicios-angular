@@ -10,15 +10,14 @@ interface Character {
   selector: 'app-dragonball-page',
   imports: [],
   templateUrl: './dragonball-page.html',
-  styleUrl: './dragonball-page.scss',
 })
 export class DragonballPage {
 
   isNaN = isNaN;
   Number = Number;
 
-  name = signal<string>('Gohan');
-  power = signal<number>(100);
+  name = signal<string>('');
+  power = signal<number>(0);
 
   characters = signal<Character[]>([
     {
@@ -26,21 +25,21 @@ export class DragonballPage {
       name: 'Goku',
       power: 9001,
     },
-    {
-      id: 2,
-      name: 'Vegeta',
-      power: 8000,
-    },
-    {
-      id: 4,
-      name: 'Yamsha',
-      power: 500,
-    },
-    {
-      id: 3,
-      name: 'Picolo',
-      power: 3000,
-    },
+    // {
+    //   id: 2,
+    //   name: 'Vegeta',
+    //   power: 8000,
+    // },
+    // {
+    //   id: 4,
+    //   name: 'Yamsha',
+    //   power: 500,
+    // },
+    // {
+    //   id: 3,
+    //   name: 'Picolo',
+    //   power: 3000,
+    // },
   ]);
 
   addCharacter() : void 

@@ -1,0 +1,21 @@
+<h1>{{tittle}}</h1>
+<hr>
+
+<section class="row">
+    <div class="col-12 col-sm-6">
+        <!-- SIEMPRE usar $event porque define el valor 
+         que se ha emitido desde el otro componente -->
+         
+        <!-- USAMOS () PARA EMITIR EVENTOS -->
+        <dragonball-character-add
+            (newCharacter)="addCharacter($event)"
+        />
+    </div>
+
+    <div class="col-12 col-sm-6">
+        <!-- USAMOS [] PARA ASIGNAR ATRIBUTOS -->
+        <dragonball-character-list 
+        listName = "Listado de personajes"
+        [characters]="characters()"/>
+    </div>
+</section>

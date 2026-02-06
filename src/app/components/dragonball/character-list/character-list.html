@@ -1,0 +1,22 @@
+<h3>{{listName()}}</h3>
+<ul>
+    <!-- Usamos TRACK para que Angular puede identificar fácilmente qué elementos 
+    han cambiado, agregado o eliminado en la lista, 
+    evitando renderizados innecesarios y mejorando la eficiencia de la aplicación. -->
+    @for (character of characters(); track character.id; let i = $index)
+    {
+        <!-- Usamos @if para mostrar elementos condicionalmente -->
+        @if(character.power > 500)
+        {
+            <li>
+                <span>{{ i + 1 }}. {{ character.name }}</span>
+                <strong [class.text-danger]="character.power > 9000"
+                        [class.text-primary]="character.power < 9000"
+                > ({{ character.power }})</strong>
+            </li>
+        } @else 
+        {
+            <li><strong>There isn't a strong character</strong></li>
+        }
+    }
+</ul>
