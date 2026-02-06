@@ -23,12 +23,12 @@ export class DragonballPage {
     {
       id: 2,
       name: 'Vegeta',
-      power: 9001,
+      power: 8000,
     },
     {
       id: 3,
-      name: 'Trunks',
-      power: 9001,
+      name: 'Picolo',
+      power: 3000,
     },
 
   ]);
