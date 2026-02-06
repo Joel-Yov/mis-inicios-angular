@@ -46,5 +46,34 @@ export class DragonballPage {
   addCharacter() : void 
   {
     console.log(`[${this.name()} - ${this.power()}]`);
+
+    if(!this.name() || !this.power() || this.power() <= 0)
+    {
+      console.log("Please, ingrese bien los datos");
+      return
+    }
+
+    const newCharacter : Character =
+    {
+      id: this.characters().length + 1,
+      name: this.name(),
+      power: this.power(),
+    }
+
+    //No se recomienda usar .push aunque funcione, sino usar un update con una copia de estado
+    // this.characters().push(newCharacter);
+
+    this.characters.update(
+      (list) => [...list, newCharacter]
+    )
+
+    this.resetFields();
+
+  }
+
+  resetFields() : void 
+  {
+    this.name.set('');
+    this.power.set(0);
   }
 }
