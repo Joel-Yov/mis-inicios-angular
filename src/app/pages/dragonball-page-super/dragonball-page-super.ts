@@ -1,6 +1,7 @@
-import { Component, signal } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { CharacterList } from '../../components/dragonball/character-list/character-list';
 import { CharacterAdd } from "../../components/dragonball/character-add/character-add";
+import { DragonballService } from '../../services/dragonball.service';
 
 interface Character {
   id: number;
@@ -17,23 +18,9 @@ export class DragonballSuperPage {
 
   tittle = 'DRAGON BALL SUPER';
 
-  characters = signal<Character[]>([
-    {
-      id: 1,
-      name: 'Goku',
-      power: 9001
-    },
-    {
-      id: 2,
-      name: 'Vegeta',
-      power: 8005
-    }
-  ])
-
-  addCharacter(newCharacter : Character) : void 
-  {
-    this.characters.update(
-      listaPersonajes => [...listaPersonajes, newCharacter]
-    )
-  }
+  //AHORA SE USA ESTA MANERA DE INYECTAR DEPENDENCIAS, YA NO POR EL CONSTRUCTOR
+  // constructor(
+  //   public dragonBallService: DragonballService
+  // ) {}
+  public dragonballService = inject(DragonballService)
 }
