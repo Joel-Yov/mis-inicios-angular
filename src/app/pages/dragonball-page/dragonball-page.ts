@@ -26,10 +26,14 @@ export class DragonballPage {
       power: 8000,
     },
     {
+      id: 4,
+      name: 'Yamsha',
+      power: 500,
+    },
+    {
       id: 3,
       name: 'Picolo',
       power: 3000,
     },
-
   ]);
 }

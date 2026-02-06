@@ -17,12 +17,19 @@
             evitando renderizados innecesarios y mejorando la eficiencia de la aplicación. -->
             @for (character of characters(); track character.id)
             {
-                <li>
-                    <span>{{ character.name }}</span>
-                    <strong [class.text-danger]="character.power > 9000"
-                            [class.text-primary]="character.power < 9000"
-                    >({{ character.power }})</strong>
-                </li>
+                <!-- Usamos @if para mostrar elementos condicionalmente -->
+                @if(character.power > 500)
+                {
+                    <li>
+                        <span>{{ character.name }}</span>
+                        <strong [class.text-danger]="character.power > 9000"
+                                [class.text-primary]="character.power < 9000"
+                        > ({{ character.power }})</strong>
+                    </li>
+                } @else 
+                {
+                    <li><strong>There isn't a strong character</strong></li>
+                }
             }
         </ul>
     </div>
